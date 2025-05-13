@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaser de Inversión: Somos Internet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos personalizados y para impresión */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            section {
+                 margin-bottom: 8px; /* Reducir aún más márgenes en impresión */
+                 padding-bottom: 8px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2, h3 {
+                font-size: 1.0rem; /* Reducir tamaño de fuentes para impresión */
+                margin-top: 8px;
+                margin-bottom: 4px;
+            }
+            p, li, td, th {
+                font-size: 0.75rem; /* Reducir tamaño de fuentes para impresión */
+            }
+            .metric-card .value {
+                font-size: 1.5rem;
+            }
+            .metric-card .label {
+                font-size: 0.7rem;
+            }
+            canvas {
+                max-height: 180px !important; /* Limitar altura de gráficos */
+            }
+            .chart-container {
+                height: 200px !important; /* Ajustar altura de contenedor de gráficos en impresión */
+            }
+            nav {
+                position: static !important; /* Evitar que el nav se superponga en impresión */
+            }
+        }
+
+        /* El logo de Somos se eliminó, así que .logo-img ya no es necesario aquí,
+           pero lo dejo por si decides añadir otro logo en su lugar con la misma clase. */
+        .logo-img {
+            max-width: 140px;
+            height: auto;
+        }
+        .endeavor-logo-img {
+            max-width: 120px; /* Ajusta según el tamaño del logo de Endeavor */
+            height: auto;
+        }
+        .hardware-img {
+            max-width: 230px;
+            height: auto;
+            margin: 10px auto; /* Centrar imagen */
+            border-radius: 8px;
+        }
+        .chart-container {
+            height: 250px;
+            width: 100%;
+            margin-bottom: 15px; /* Reducido ligeramente */
+        }
+        .metric-card {
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            padding: 0.75rem; /* Reducido ligeramente */
+            text-align: center;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+        .metric-card .value {
+            font-size: 1.75rem; /* Reducido ligeramente */
+            font-weight: bold;
+            color: #10b981;
+        }
+        .metric-card .label {
+            font-size: 0.8rem; /* Reducido ligeramente */
+            color: #6b7280;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50 no-print">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <div class="flex items-center">
+                <div style="width: 140px; height: 45px;"></div> </div>
+            <div class="hidden md:flex space-x-3"> <a href="#cifras" class="text-gray-700 hover:text-blue-600 px-2 py-1 rounded-md text-xs font-medium">Cifras</a>
+                <a href="#problema" class="text-gray-700 hover:text-blue-600 px-2 py-1 rounded-md text-xs font-medium">Problema</a>
+                <a href="#solucion" class="text-gray-700 hover:text-blue-600 px-2 py-1 rounded-md text-xs font-medium">Solución</a>
+                <a href="#mercado" class="text-gray-700 hover:text-blue-600 px-2 py-1 rounded-md text-xs font-medium">Mercado</a>
+                <a href="#traccion" class="text-gray-700 hover:text-blue-600 px-2 py-1 rounded-md text-xs font-medium">Tracción</a>
+                <a href="#equipo" class="text-gray-700 hover:text-blue-600 px-2 py-1 rounded-md text-xs font-medium">Equipo</a>
+            </div>
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Endeavor_Global_logo.png" alt="Logo Endeavor" class="endeavor-logo-img">
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4 md:p-6">
+
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-blue-700 mb-2">Teaser de Inversión: Somos Internet</h1>
+            <p class="text-md md:text-lg text-gray-600">Fibra Óptica de Alta Velocidad y Servicio Superior Transformando el Panorama de Internet en Colombia.
+                <br class="hidden md:block">
+                <span class="text-sm md:text-base font-semibold">Por: Sebastian Galvis, Sr Associate @Endeavor</span>
+            </p>
+        </header>
+
+        <section id="cifras" class="mb-8 p-4 bg-white rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4 text-center">Somos en Cifras Clave</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <div class="metric-card">
+                    <div class="value">30,500</div>
+                    <div class="label">Usuarios Activos (Dic 2024) 📈</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">US$3.2M</div>
+                    <div class="label">Ingresos 2024 💰</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">85</div>
+                    <div class="label">NPS (Líder Industria) ⭐</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">US$13.4M</div>
+                    <div class="label">Financiamiento Seed (Jul 2023) 💸</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">2</div>
+                    <div class="label">Ciudades (Medellín, Bogotá) 🇨🇴</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">+700 km</div>
+                    <div class="label">Red Propia Fibra Desplegada 🌐</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="problema" class="mb-8 p-4 bg-white rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-gray-700 mb-3">El Problema: Déficit de Internet en Colombia</h2>
+            <p class="text-gray-600 leading-relaxed text-sm">
+                Una porción significativa del mercado colombiano aún sufre por un servicio de internet deficiente. Los usuarios frecuentemente enfrentan:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 leading-relaxed mt-2 space-y-1 text-sm">
+                <li>Velocidades lentas e inestables.</li>
+                <li>Servicio al cliente frustrante (bots, largas esperas).</li>
+                <li>Contratos restrictivos con cláusulas de permanencia.</li>
+                <li>Limitaciones para productividad, educación y economía digital.</li>
+            </ul>
+        </section>
+
+        <section id="solucion" class="mb-8 p-4 bg-sky-50 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-sky-700 mb-3">Solución: Rápido, Justo, Humano</h2>
+            <p class="text-gray-700 leading-relaxed text-sm">
+                Somos Internet aborda directamente estas deficiencias ofreciendo:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 leading-relaxed mt-2 space-y-1 text-sm">
+                <li><strong>Internet ultra-rápido y confiable:</strong> Fibra óptica hasta el hogar (FTTH) con velocidades simétricas.</li>
+                <li><strong>Experiencia del cliente radical:</strong> Soporte técnico humano disponible 24/7.</li>
+                <li><strong>Transparencia y flexibilidad:</strong> Precios claros sin cláusulas de permanencia ocultas.</li>
+                <li><strong>Prueba sin riesgo:</strong> 30 días de prueba gratuita para eliminar el riesgo de adopción.</li>
+                <li><strong>Control de calidad:</strong> Red propia para asegurar calidad y fiabilidad del servicio.</li>
+            </ul>
+        </section>
+
+        <section id="propuesta-valor" class="mb-8 p-4 bg-white rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4 text-center">Propuesta de Valor Única</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-3 border border-gray-200 rounded-lg hover:shadow-xl transition-shadow">
+                    <h3 class="font-semibold text-md text-blue-600 mb-1">🚀 Velocidad Extrema</h3>
+                    <p class="text-xs text-gray-600">Autoproclamado "El internet más rápido de Colombia", con fibra simétrica hasta 2 Gbps.</p>
+                </div>
+                <div class="p-3 border border-gray-200 rounded-lg hover:shadow-xl transition-shadow">
+                    <h3 class="font-semibold text-md text-blue-600 mb-1">💡 Fibra Confiable</h3>
+                    <p class="text-xs text-gray-600">Red propia para un rendimiento consistente y de alta calidad.</p>
+                </div>
+                <div class="p-3 border border-gray-200 rounded-lg hover:shadow-xl transition-shadow">
+                    <h3 class="font-semibold text-md text-blue-600 mb-1">🤝 Soporte Humano</h3>
+                    <p class="text-xs text-gray-600">Servicio al cliente 24/7 por personas reales, no bots.</p>
+                </div>
+                <div class="p-3 border border-gray-200 rounded-lg hover:shadow-xl transition-shadow">
+                    <h3 class="font-semibold text-md text-blue-600 mb-1">🔓 Sin Ataduras</h3>
+                    <p class="text-xs text-gray-600">Contratos flexibles sin cláusulas de permanencia obligatorias.</p>
+                </div>
+                <div class="p-3 border border-gray-200 rounded-lg hover:shadow-xl transition-shadow">
+                    <h3 class="font-semibold text-md text-blue-600 mb-1">✅ Prueba Sin Riesgo</h3>
+                    <p class="text-xs text-gray-600">30 días de prueba gratuita para experimentar la diferencia.</p>
+                </div>
+                <div class="p-3 border border-gray-200 rounded-lg hover:shadow-xl transition-shadow">
+                    <h3 class="font-semibold text-md text-blue-600 mb-1">⭐ Calificación Superior</h3>
+                    <p class="text-xs text-gray-600">NPS líder en la industria de 85, indicando una excepcional satisfacción del cliente.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="page-break"></div>
+
+        <section id="mercado" class="mb-8 p-4 bg-white rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-gray-700 mb-3">Oportunidad de Mercado: El Boom de la Fibra</h2>
+            <p class="text-gray-600 leading-relaxed mb-3 text-sm">
+                Colombia experimenta una rápida transición a fibra óptica. Mercado fijo: ~9.1M conexiones (fin 2024). Fibra: 3.6M (40% total fijo Q2 2024), +20% interanual.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-700 mb-1 text-center">Crecimiento Fibra Óptica (Conexiones)</h3>
+                    <div class="chart-container"><canvas id="fibraOpticaChart"></canvas></div>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-700 mb-1 text-center">Cuota de Mercado (Proveedores)</h3>
+                    <div class="chart-container"><canvas id="cuotaMercadoChart"></canvas></div>
+                </div>
+            </div>
+            <p class="text-gray-600 leading-relaxed text-sm">
+                TAM residencial: ~$4.7B. SOM 2025: ~$10M (meta 65k usuarios). Nuevos proveedores: 20.9% mercado (2024).
+            </p>
+        </section>
+
+        <section id="traccion" class="mb-8 p-4 bg-green-50 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-green-700 mb-3">Tracción y Crecimiento Explosivo</h2>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-700 mb-1 text-center">Crecimiento Usuarios Activos</h3>
+                    <div class="chart-container"><canvas id="usuariosActivosChart"></canvas></div>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-700 mb-1 text-center">Ingresos Anuales (USD)</h3>
+                    <div class="chart-container"><canvas id="ingresosAnualesChart"></canvas></div>
+                </div>
+            </div>
+            <div class="text-center mb-3">
+                <p class="text-gray-700 leading-relaxed text-sm">Expansión red: >700 km fibra propia. US$3M para Bogotá 2025.</p>
+                <img src="https://drive.google.com/drive/folders/1KFNFkjP97kPU97aiXORnSLMl6AMNrQLA" alt="Hardware de Somos Internet" class="hardware-img mt-3 rounded-lg shadow">
+                <p class="text-xs text-center text-gray-500 mt-1">[Imagen del Hardware de Somos Internet]</p>
+            </div>
+        </section>
+
+        <section id="ventaja-competitiva" class="mb-8 p-4 bg-white rounded-lg shadow-lg overflow-x-auto">
+            <h2 class="text-xl font-semibold text-gray-700 mb-3">Ventaja Competitiva</h2>
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-3 py-1.5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Característica</th>
+                        <th class="px-3 py-1.5 text-left text-xs font-medium text-blue-600 uppercase tracking-wider">Somos Internet</th>
+                        <th class="px-3 py-1.5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Claro</th>
+                        <th class="px-3 py-1.5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Movistar</th>
+                        <th class="px-3 py-1.5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ETB</th>
+                        <th class="px-3 py-1.5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tigo</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200 text-xs">
+                    <tr>
+                        <td class="px-3 py-1.5 whitespace-nowrap font-medium text-gray-900">Veloc. Máx</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-blue-600 font-semibold">Hasta 2 Gbps</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">Hasta 1 Gbps</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">900 Mbps</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">910 Mbps</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">500 Mbps</td>
+                    </tr>
+                    <tr>
+                        <td class="px-3 py-1.5 whitespace-nowrap font-medium text-gray-900">Simetría</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-blue-600 font-semibold">Sí</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">No</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">Sí</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">Sí (mayormente)</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">No</td>
+                    </tr>
+                    <tr>
+                        <td class="px-3 py-1.5 whitespace-nowrap font-medium text-gray-900">Serv. Cliente</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-blue-600 font-semibold">NPS 85, Humano</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">Variable</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">Bueno</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">Bueno</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">Variable</td>
+                    </tr>
+                    <tr>
+                        <td class="px-3 py-1.5 whitespace-nowrap font-medium text-gray-900">Precio Prom.</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-blue-600 font-semibold">~$100k COP</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">$166k COP</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">$90k COP</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">$95k COP</td>
+                        <td class="px-3 py-1.5 whitespace-nowrap text-gray-500">$189k COP</td>
+                    </tr>
+                </tbody>
+            </table>
+             <p class="text-xs text-gray-500 mt-1.5">*Nota: Precios indicativos.</p>
+        </section>
+
+        <section id="modelo-negocio" class="mb-8 p-4 bg-white rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-gray-700 mb-3">Modelo de Negocio</h2>
+            <ul class="list-disc list-inside text-gray-600 leading-relaxed space-y-1 text-sm">
+                <li>Suscripción Directa al Consumidor (D2C) y B2B.</li>
+                <li>Ingresos Recurrentes Mensuales (MRR) por tarifas fijas según velocidad.</li>
+                <li>Ingresos adicionales: TV vía streaming y futuros servicios de valor agregado.</li>
+            </ul>
+        </section>
+        
+        <section id="equipo" class="mb-8 p-4 bg-teal-50 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-teal-700 mb-4 text-center">Equipo Fundador y Directivo Clave</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="text-center p-3">
+                    <img src="https://placehold.co/80x80/7F9CF5/FFFFFF?text=FTH" alt="Forrest T. Heath III" class="w-20 h-20 rounded-full mx-auto mb-1.5 shadow-md">
+                    <h3 class="font-semibold text-gray-800 text-sm">Forrest T. Heath III</h3>
+                    <p class="text-xs text-gray-600">CEO & Founder</p>
+                    <p class="text-xs text-gray-500 mt-0.5">YC W21, IDEO CoLab</p>
+                </div>
+                <div class="text-center p-3">
+                    <img src="https://placehold.co/80x80/A3BFFA/FFFFFF?text=OP" alt="Oscar Peña" class="w-20 h-20 rounded-full mx-auto mb-1.5 shadow-md">
+                    <h3 class="font-semibold text-gray-800 text-sm">Oscar Peña</h3>
+                    <p class="text-xs text-gray-600">CTO</p>
+                    <p class="text-xs text-gray-500 mt-0.5">VP Eng. Job&Talent, Endeavor</p>
+                </div>
+                <div class="text-center p-3">
+                    <img src="https://placehold.co/80x80/C7D2FE/FFFFFF?text=RG" alt="Ross Garlick" class="w-20 h-20 rounded-full mx-auto mb-1.5 shadow-md">
+                    <h3 class="font-semibold text-gray-800 text-sm">Ross Garlick</h3>
+                    <p class="text-xs text-gray-600">CFO</p>
+                    <p class="text-xs text-gray-500 mt-0.5">JP Morgan TMT</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="porque-endeavor" class="mb-8 p-4 bg-white rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-gray-700 mb-3">¿Por Qué Somos Candidato para Endeavor?</h2>
+            <ul class="list-none space-y-2 text-sm">
+                <li class="flex items-start"><span class="text-blue-500 mr-1.5 text-lg">🎯</span> <span class="font-semibold">David vs Goliat:</span> Modelo disruptivo desafiando incumbentes.</li>
+                <li class="flex items-start"><span class="text-blue-500 mr-1.5 text-lg">📈</span> <span class="font-semibold">Crecimiento Exponencial:</span> Demostrado en usuarios e ingresos.</li>
+                <li class="flex items-start"><span class="text-blue-500 mr-1.5 text-lg">🚀</span> <span class="font-semibold">Punto de Inflexión:</span> Listos para consolidar y expandir.</li>
+                <li class="flex items-start"><span class="text-blue-500 mr-1.5 text-lg">🌍</span> <span class="font-semibold">Oportunidad de Mercado Masiva:</span> Potencial de gran empresa.</li>
+                <li class="flex items-start"><span class="text-blue-500 mr-1.5 text-lg">💡</span> <span class="font-semibold">Efecto Multiplicador:</span> Inspirar y retribuir al ecosistema.</li>
+            </ul>
+        </section>
+
+        <section id="riesgos" class="mb-8 p-4 bg-red-50 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-red-700 mb-3">Riesgos Clave y Defensibilidad</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-300 text-xs">
+                    <thead class="bg-red-100">
+                        <tr>
+                            <th class="px-3 py-1.5 text-left font-medium text-red-700 uppercase tracking-wider">Riesgos</th>
+                            <th class="px-3 py-1.5 text-left font-medium text-red-700 uppercase tracking-wider">Defensibilidad</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-3 py-1.5 text-gray-700">⚔️ Competencia Intensa</td>
+                            <td class="px-3 py-1.5 text-gray-700">🛡️ Red Propia</td>
+                        </tr>
+                        <tr>
+                            <td class="px-3 py-1.5 text-gray-700">⚖️ Ejecución a Escala</td>
+                            <td class="px-3 py-1.5 text-gray-700">❤️ Marca y Lealtad (NPS 85)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-3 py-1.5 text-gray-700">💰 Intensidad de Capital</td>
+                            <td class="px-3 py-1.5 text-gray-700">✨ Producto Superior</td>
+                        </tr>
+                        <tr>
+                            <td class="px-3 py-1.5 text-gray-700">📜 Entorno Regulatorio</td>
+                            <td class="px-3 py-1.5 text-gray-700">🤝 Respaldo Fuerte Inversionistas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer class="text-center py-6 border-t border-gray-200">
+            <p class="text-gray-600 text-sm">&copy; 2025 Sebastian Galvis.</p>
+            <button onclick="window.print()" class="mt-3 bg-blue-600 hover:bg-blue-700 text-white font-bold py-1.5 px-3 rounded text-sm no-print">
+                <i class="fas fa-print mr-1.5"></i>Exportar a PDF / Imprimir
+            </button>
+        </footer>
+
+    </main>
+
+    <script>
+        // Script para inicializar los gráficos de Chart.js
+        // Helper para formatear números como K o M
+        function formatLargeNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            }
+            if (num >= 1000) {
+                return (num / 1000).toFixed(0) + 'K';
+            }
+            return num;
+        }
+
+        // 1. Gráfico: Crecimiento de Conexiones de Fibra Óptica
+        const fibraOpticaCtx = document.getElementById('fibraOpticaChart')?.getContext('2d');
+        if (fibraOpticaCtx) {
+            new Chart(fibraOpticaCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2022', '2023', 'Q2 2024'],
+                    datasets: [{
+                        label: 'Millones de Conexiones',
+                        data: [2.0, 2.8, 3.6],
+                        backgroundColor: 'rgba(59, 130, 246, 0.6)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true, title: { display: true, text: 'Millones' } } },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        // 2. Gráfico: Cuota de Mercado (Proveedores)
+        const cuotaMercadoCtx = document.getElementById('cuotaMercadoChart')?.getContext('2d');
+        if (cuotaMercadoCtx) {
+            new Chart(cuotaMercadoCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Tradicionales', 'Nuevos Proveedores'],
+                    datasets: [{
+                        label: 'Cuota de Mercado 2024',
+                        data: [79.1, 20.9],
+                        backgroundColor: ['rgba(107, 114, 128, 0.6)', 'rgba(22, 163, 74, 0.6)'],
+                        borderColor: ['rgba(107, 114, 128, 1)', 'rgba(22, 163, 74, 1)'],
+                        borderWidth: 1
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: {boxWidth:12, font: {size: 10}} } } }
+            });
+        }
+
+        // 3. Gráfico: Crecimiento de Usuarios Activos
+        const usuariosActivosCtx = document.getElementById('usuariosActivosChart')?.getContext('2d');
+        if (usuariosActivosCtx) {
+            new Chart(usuariosActivosCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Fin 2023', 'Fin 2024', 'Meta 2025'],
+                    datasets: [{
+                        label: 'Usuarios Activos',
+                        data: [14000, 30500, 65000],
+                        fill: true,
+                        backgroundColor: 'rgba(16, 185, 129, 0.3)',
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true, title: { display: true, text: 'Nº Usuarios' }, ticks: {callback: value => formatLargeNumber(value)} } },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        // 4. Gráfico: Ingresos Anuales (ARR)
+        const ingresosAnualesCtx = document.getElementById('ingresosAnualesChart')?.getContext('2d');
+        if (ingresosAnualesCtx) {
+            new Chart(ingresosAnualesCtx, {
+                type: 'bar', // o 'line'
+                data: {
+                    labels: ['2021', '2022', '2023', '2024'],
+                    datasets: [{
+                        label: 'Ingresos Anuales (USD)',
+                        data: [80000, 230000, 2500000, 3200000], // Datos: 80K, 230K, 2.5M, 3.2M
+                        backgroundColor: 'rgba(239, 68, 68, 0.6)', // Rojo
+                        borderColor: 'rgba(239, 68, 68, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'USD' },
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return formatLargeNumber(value);
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                             callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits:0 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
+        // Smooth scroll para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navbarHeight = document.querySelector('nav')?.offsetHeight || 0;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 10; // 10px extra offset
+                
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
